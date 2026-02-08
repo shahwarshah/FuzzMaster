@@ -32,3 +32,4 @@ Make sure Go is installed (Go 1.20+ recommended).
 git clone https://github.com/yourusername/fuzzmaster.git
 cd fuzzmaster
 go build -o fuzzmaster
+go build -o fuzzmaster.exe (for windows)
