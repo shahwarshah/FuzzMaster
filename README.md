@@ -86,7 +86,7 @@ Results are saved in JSON format for easy reporting:
   "length": 532,
   "soft_404": false
 }
-
+```
 ⚠️ Disclaimer
 
 This tool is intended for authorized security testing only.
