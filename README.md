@@ -33,3 +33,61 @@ git clone https://github.com/yourusername/fuzzmaster.git
 cd fuzzmaster
 go build -o fuzzmaster
 go build -o fuzzmaster.exe (for windows)
+
+
+On Windows:
+
+go build -o fuzzmaster.exe
+
+🚀 Usage
+./fuzzmaster -subs subs.txt -dirs dirs.txt
+
+Example (Windows)
+.\fuzzmaster.exe `
+  -subs D:\SUBDOMAINS\apple.com.txt `
+  -dirs C:\wordlists\dirs.txt `
+  -rate 10 `
+  -workers 20
+
+🧩 Flags
+Flag	Description
+-subs	File containing subdomains
+-dirs	Directory wordlist
+-ext	Extensions to try (default: php,bak,zip)
+-params	Query parameters to fuzz
+-rate	Requests per second
+-workers	Number of concurrent workers
+-json	JSON output file (default: out.json)
+-nuclei	Run nuclei on valid hits
+🖥 Output
+Alive Check
+[ALIVE] example.com → 200 (1245 bytes)
+
+Requests
+[REQ] 403 https://example.com/admin (0 bytes)
+[HIT] https://example.com/actuator
+
+Summary
+========== SUMMARY ==========
+Total Requests : 1342
+200s           : 17
+300s           : 41
+400s           : 1201
+500s           : 83
+=============================
+
+📄 JSON Output
+
+Results are saved in JSON format for easy reporting:
+
+{
+  "url": "https://example.com/actuator",
+  "status": 200,
+  "length": 532,
+  "soft_404": false
+}
+
+⚠️ Disclaimer
+
+This tool is intended for authorized security testing only.
+Do not use it against systems you do not own or have explicit permission to test.
